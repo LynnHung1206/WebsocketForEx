@@ -21,12 +21,13 @@
 </body>
 
 <script>
+//	動態拿到專案路徑
 	var MyPoint = "/TogetherWS/james";
 	var host = window.location.host;
 	var path = window.location.pathname;
 	var webCtx = path.substring(0, path.indexOf('/', 1));
 	var endPointURL = "ws://" + window.location.host + webCtx + MyPoint;
-
+//	ws://localhost:8081/WebSocketChatWeb/TogetherWS/james
 	var statusOutput = document.getElementById("statusOutput");
 	var webSocket;
 
@@ -40,7 +41,7 @@
 			document.getElementById('connect').disabled = true;
 			document.getElementById('disconnect').disabled = false;
 		};
-
+		//後端訊息傳回來
 		webSocket.onmessage = function(event) {
 			var messagesArea = document.getElementById("messagesArea");
 			var jsonObj = JSON.parse(event.data);
@@ -76,6 +77,7 @@
 				"userName" : userName,
 				"message" : message
 			};
+			//送給後端
 			webSocket.send(JSON.stringify(jsonObj));
 			inputMessage.value = "";
 			inputMessage.focus();

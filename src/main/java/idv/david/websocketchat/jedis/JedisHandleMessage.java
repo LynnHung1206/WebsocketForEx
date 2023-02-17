@@ -14,6 +14,7 @@ public class JedisHandleMessage {
 		String key = new StringBuilder(sender).append(":").append(receiver).toString();
 		Jedis jedis = null;
 		jedis = pool.getResource();
+//		拿出所有歷史聊天紀錄
 		List<String> historyData = jedis.lrange(key, 0, -1);
 		jedis.close();
 		return historyData;

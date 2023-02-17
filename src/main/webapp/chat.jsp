@@ -127,6 +127,7 @@
 					"type" : "history",
 					"sender" : self,
 					"receiver" : friend,
+//	 				receiver可以寫死成costomerService
 					"message" : ""
 				};
 			webSocket.send(JSON.stringify(jsonObj));

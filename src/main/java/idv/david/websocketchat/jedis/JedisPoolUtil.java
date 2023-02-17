@@ -4,12 +4,14 @@ import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
 public class JedisPoolUtil {
+//	只有一個池子
 	private static JedisPool pool = null;
 
 	private JedisPoolUtil() {
 	}
 
 	public static JedisPool getJedisPool() {
+//		預防2個執行序同時進來
 		if (pool == null) {
 			synchronized (JedisPoolUtil.class) {
 				if (pool == null) {

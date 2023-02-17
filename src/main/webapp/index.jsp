@@ -50,6 +50,7 @@ html, body {
 <body>
 	<div id="outPopUp">
 		<h1 align="center">tibame最大的私聊上線囉～</h1>
+		<%-- 		${pageContext.request.contextPath} --%>
 		<form id="myForm" action="<%=request.getContextPath() %>/chat.do" method="POST">
 			<input id="userName" name="userName" class="text-field" type="text" placeholder="Input user name" /> 
 			<input type="submit" id="send" class="button" value="送出" onclick="sendName();" />
